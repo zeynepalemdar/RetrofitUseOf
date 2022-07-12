@@ -28,17 +28,13 @@ public class CategoriesRepository {
         apiRequest.getALLCategories().enqueue(new Callback<List<String>>() {
             @Override
             public void onResponse(Call<List<String>> call, Response<List<String>> response) {
-                System.out.println("ONRESPONSE"+response.code());
                 if(response.body() != null){
                     data.setValue(response.body());
-
-
                 }
             }
 
             @Override
             public void onFailure(Call<List<String>> call, Throwable t) {
-                System.out.println("ONFAILURE"+t.getMessage());
                 data.setValue(null);
             }
         });
